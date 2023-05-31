@@ -1,0 +1,35 @@
+:root {
+  // Шрифты
+  --font-family-main: 'Roboto', sans-serif;
+  // s
+  --font-size-s: 10px;
+  --font-line-s: 18px;
+  --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+  // m
+  --font-size-m: 16px;
+  --font-line-m: 24px;
+  --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+  // l
+  --font-size-l: 20px;
+  --font-line-l: 28px;
+  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+  // xl
+  --font-size-xl: 32px;
+  --font-line-xl: 40px;
+  --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+
+  // Размеры
+  --sidebar-width: 480px;
+
+  // Цвета
+  // text
+  --text-color: #D1D7DB;
+  --text-error-color: #B63939;
+  --placeholder-color: #8696A0;
+  // bg
+  --bg-dark-color: #111B21;
+  --bg-light-color: #222E35;
+  --bg-input-color: #2A3942;
+  --bg-green-color: #005C4B;
+  --bg-chat-color: #111B21e6;
+}
