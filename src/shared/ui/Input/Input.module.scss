@@ -1,0 +1,21 @@
+.input {
+  background: var(--bg-input-color);
+  border: none;
+  outline: none;
+  color: var(--text-color);
+  font: var(--font-l);
+  padding: 9px 20px;
+  border-radius: 10px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: var(--placeholder-color);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
