@@ -1,5 +1,11 @@
+import { AuthPage } from '@/pages/authPage';
+
 const App = () => {
-  return <div className='app'>Hello</div>;
+  return (
+    <div className='app'>
+      <AuthPage />
+    </div>
+  );
 };
 
 export default App;

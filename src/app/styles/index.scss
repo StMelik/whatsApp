@@ -7,3 +7,18 @@
   background-color: var(--bg-dark-color);
   min-height: 100vh;
 }
+
+*::-webkit-scrollbar {
+  width: 10px;                                 /* ширина всей полосы прокрутки */
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--bg-light-color);               /* цвет зоны отслеживания */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--bg-input-color);    /* цвет бегунка */
+  border-radius: 20px;                                  /* округлось бегунка */
+  border: 1px solid var(--placeholder-color);             /* отступ вокруг бегунка */
+}
