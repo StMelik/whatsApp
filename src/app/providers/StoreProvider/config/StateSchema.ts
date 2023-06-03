@@ -1,8 +1,13 @@
+import { ChatSchema } from '@/entities/Chat';
+import { UserSchema } from '@/entities/User';
+import { LoginSchema } from '@/features/authByApi';
 import { AxiosInstance } from 'axios';
 
-export interface StateSchema {}
-
-export type StateSchemaKey = keyof StateSchema;
+export interface StateSchema {
+  loginForm: LoginSchema;
+  user: UserSchema;
+  chat: ChatSchema;
+}
 
 export interface ThunkExtraArg {
   api: AxiosInstance;

@@ -1,7 +1,7 @@
 @import './reset';
 @import './variables/global';
 
-.app {
+body {
   font: var(--font-l);
   color: var(--text-color);
   background-color: var(--bg-dark-color);
@@ -14,11 +14,11 @@
 }
 
 *::-webkit-scrollbar-track {
-  background: var(--bg-light-color);               /* цвет зоны отслеживания */
+  background: var(--bg-light-color);          /* цвет зоны отслеживания */
 }
 
 *::-webkit-scrollbar-thumb {
   background-color: var(--bg-input-color);    /* цвет бегунка */
-  border-radius: 20px;                                  /* округлось бегунка */
-  border: 1px solid var(--placeholder-color);             /* отступ вокруг бегунка */
+  border-radius: 20px;                        /* округлось бегунка */
+  border: 1px solid var(--placeholder-color); /* отступ вокруг бегунка */
 }
