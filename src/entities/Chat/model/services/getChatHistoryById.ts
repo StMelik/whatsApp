@@ -1,7 +1,7 @@
 import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { formatDate } from '@/shared/lib/formatDate/formatDate';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ChatMessageType, IChatMessageType } from '../types/ChatSchema';
+import { formatDate } from '@/shared/lib/store';
 
 interface IResponseType {
   type: string;

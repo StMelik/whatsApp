@@ -1,11 +1,10 @@
 import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { formatDate } from '@/shared/lib/formatDate/formatDate';
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { selectedChatIdSelector } from '../selectors/chatSelector/chatSelector';
-import { IChatMessageType, TypeNotification } from '../types/ChatSchema';
-import { isMessageNotification, isOutgoingMessageNotification } from '../../lib/checkNotification/checkNotification';
-import { deleteNotification } from './deleteNotification';
 import { authDataSelector } from '@/entities/User';
+import { formatDate } from '@/shared/lib/store';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { isMessageNotification, isOutgoingMessageNotification } from '../../lib/checkNotification/checkNotification';
+import { IChatMessageType } from '../types/ChatSchema';
+import { deleteNotification } from './deleteNotification';
 
 interface IReceiveNotificationResponse {
   receiptId: number;
@@ -26,12 +25,11 @@ export const getNotification = createAsyncThunk<IReturnMessage | undefined, void
   async (_, thunkApi) => {
     const { rejectWithValue, extra, getState, dispatch } = thunkApi;
 
-    const isAuth = authDataSelector(getState())
-    
+    const isAuth = authDataSelector(getState());
+
     if (!isAuth) return;
 
     try {
-
       const { data: receiveNotificationData } = await extra.api.get<IReceiveNotificationResponse>('receiveNotification');
 
       // Если нет уведомлений отправляем повторный запрос
@@ -47,10 +45,10 @@ export const getNotification = createAsyncThunk<IReturnMessage | undefined, void
 
       // Уведомление о новом сообщении
       if (isMessageNotification(typeWebhook)) {
-        const messageData = receiveNotificationBody.messageData
+        const messageData = receiveNotificationBody.messageData;
 
-        const text = messageData?.textMessageData?.textMessage || messageData?.extendedTextMessageData?.text || ''
-        
+        const text = messageData?.textMessageData?.textMessage || messageData?.extendedTextMessageData?.text || '';
+
         const message: IChatMessageType = {
           id: receiveNotificationBody.idMessage,
           isOwner: isOutgoingMessageNotification(typeWebhook),
@@ -58,19 +56,19 @@ export const getNotification = createAsyncThunk<IReturnMessage | undefined, void
           text
         };
 
-        await dispatch(deleteNotification(receiptId))
+        await dispatch(deleteNotification(receiptId));
         dispatch(getNotification());
 
         return {
           chatId: receiveNotificationBody.senderData.chatId,
           message
-        }
+        };
       }
 
-      await dispatch(deleteNotification(receiptId))
+      await dispatch(deleteNotification(receiptId));
       dispatch(getNotification());
 
-      return
+      return;
     } catch (error) {
       console.log('Ошибка при получении уведомления', error);
 
