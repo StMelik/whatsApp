@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { User } from '../types/UserSchema';
 
 export const initAuthData = createAsyncThunk<User, void, ThunkConfig<string>>('user/initAuthData', async (_, thunkApi) => {
-  const { rejectWithValue, extra, dispatch } = thunkApi;
+  const { rejectWithValue, extra } = thunkApi;
 
   try {
     const response = await extra.api.get('getSettings');

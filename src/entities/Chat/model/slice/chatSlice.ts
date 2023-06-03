@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { IReturnMessage, getNotification } from '../services/getNotification';
-import { IChatSchema } from '../types/ChatSchema';
+import { ChatType, IChatSchema } from '../types/ChatSchema';
+import { CHAT_LOCAL_STORAGE_KEY } from '@/shared/constants/localStorage';
 
 const initialState: IChatSchema = {
   items: [],
@@ -23,10 +24,20 @@ const chatSlice = createSlice({
       });
 
       state.selectedChatId = chatId;
+
+      localStorage.setItem(CHAT_LOCAL_STORAGE_KEY, JSON.stringify(state.items))
     },
 
     setSelectedChatId: (state, { payload }: PayloadAction<string>) => {
       state.selectedChatId = payload;
+    },
+
+    initItems: (state) => {
+      const localItems = localStorage.getItem(CHAT_LOCAL_STORAGE_KEY)
+
+      if (localItems) {
+        state.items = JSON.parse(localItems) as ChatType[]
+      }
     }
   },
   extraReducers: (builder) => {

@@ -27,6 +27,7 @@ export const ChatPage = () => {
 
   useEffect(() => {
     dispatch(getNotification());
+    dispatch(chatActions.initItems())
   }, []);
 
   const empty = (
