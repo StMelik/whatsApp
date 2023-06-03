@@ -1,1 +1,1 @@
-export { AuthPage } from './ui/AuthPage/AuthPage';
+export { AuthPage } from './ui/AuthPage/AuthPage'

@@ -1,6 +1,6 @@
 import { initAuthData, useAuthDataSelector, useUserInitedSelector } from '@/entities/User';
-import { AuthPage } from '@/pages/AuthPage';
-import { MainPage } from '@/pages/MainPage';
+import { AuthPage } from '@/pages/authPage';
+import { MainPage } from '@/pages/mainPage';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch/useAppDispatch';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { LoaderPage } from '@/widgets/LoaderPage';
