@@ -1,8 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { IChatMessageType, IChatSchema } from '../types/ChatSchema';
-import { IReturnChatHistory, getChatHistoryById } from '../services/getChatHistoryById';
-import { IReturnSendMessage, sendMessage } from '../services/sendMessage';
 import { IReturnMessage, getNotification } from '../services/getNotification';
+import { IChatSchema } from '../types/ChatSchema';
 
 const initialState: IChatSchema = {
   items: [],
@@ -32,22 +30,6 @@ const chatSlice = createSlice({
     }
   },
   extraReducers: (builder) => {
-    builder
-      .addCase(getChatHistoryById.pending, (state) => {
-        state.isLoading = true;
-        state.error = '';
-      })
-      .addCase(getChatHistoryById.fulfilled, (state, { payload }: PayloadAction<IReturnChatHistory>) => {
-        state.isLoading = false;
-        state.error = '';
-
-        state.items.find(({ id }) => id === payload.chatId)!.messages = payload.messages.reverse()
-      })
-      .addCase(getChatHistoryById.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = payload;
-      });
-
       builder
       .addCase(getNotification.fulfilled, (state, { payload }: PayloadAction<IReturnMessage | undefined>) => {
         if (!payload) return

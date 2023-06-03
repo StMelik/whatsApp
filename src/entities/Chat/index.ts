@@ -11,5 +11,3 @@ export { sendMessage } from './model/services/sendMessage';
 export { useSelectedChatIdSelector, useChatPhoneSelector } from './model/selectors/chatSelector/chatSelector';
 
 export { getNotification } from './model/services/getNotification';
-
-export { getChatHistoryById } from './model/services/getChatHistoryById';
