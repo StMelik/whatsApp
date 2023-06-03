@@ -5,18 +5,7 @@ import { IReturnSendMessage, sendMessage } from '../services/sendMessage';
 import { IReturnMessage, getNotification } from '../services/getNotification';
 
 const initialState: IChatSchema = {
-  items: [
-    // {
-    //   id: '79996359290@c.us',
-    //   phone: '79996359290',
-    //   messages: []
-    // },
-    // {
-    //   id: '79667666050@c.us',
-    //   phone: '79667666050',
-    //   messages: []
-    // }
-  ],
+  items: [],
   isLoading: false,
   error: '',
   selectedChatId: ''
@@ -30,7 +19,7 @@ const chatSlice = createSlice({
       const chatId = `${payload}@c.us`;
 
       state.items.push({
-        id: payload,
+        id: chatId,
         phone: payload,
         messages: []
       });
