@@ -1,0 +1,11 @@
+.chatMessageCard {
+  padding: 5px 10px;
+  background-color: var(--bg-dark-color);
+  border-radius: 10px;
+  max-width: 500px;
+  width: max-content;
+}
+
+.owner {
+  background-color: var(--bg-green-color);
+}

@@ -1,0 +1,21 @@
+.chatMessagesList {
+  flex-grow: 1;
+  overflow-y: auto;
+  background-color: var(--bg-chat-color);
+  padding: 0 30px;
+  // background-image: url('../../../../shared/assets/img/chat-bg.png');
+}
+
+.owner {
+  margin-left: auto;
+}
+
+.message {
+  &:first-child {
+    margin-top: auto;
+  }
+
+  &:last-child {
+    margin-bottom: 15px;
+  }
+}

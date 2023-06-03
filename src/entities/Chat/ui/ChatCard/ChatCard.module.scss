@@ -1,0 +1,17 @@
+.chatCard {
+  padding: 15px;
+  border-bottom: 1px solid var(--border-color);
+  transition: all .1s ease-out;
+
+  &:not(.active) {
+    &:hover {
+      background-color: var(--placeholder-color);
+      cursor: pointer;
+    }
+  }
+  
+}
+
+.active {
+  background-color: var(--border-color);
+}
