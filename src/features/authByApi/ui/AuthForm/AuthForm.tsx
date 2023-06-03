@@ -25,7 +25,7 @@ export const AuthForm = (props: AuthFormProps) => {
 
   const handleLoginClick = useCallback(() => {
     dispatch(loginByApi({ userApi: apiValue, userId: idValue }));
-  }, []);
+  }, [apiValue, idValue]);
 
   return (
     <VStack
