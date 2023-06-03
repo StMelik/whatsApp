@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import { ChangeEvent, InputHTMLAttributes, memo } from 'react';
 import { VStack } from '../Stack';
 import { Text } from '../Text';
@@ -9,10 +10,11 @@ interface InputProps extends HTMLInputProps {
   className?: string;
   label?: string;
   onChange?: (value: string) => void;
+  width?: string | number;
 }
 
 export const Input = memo((props: InputProps) => {
-  const { className, onChange, label, ...otherProps } = props;
+  const { className, onChange, label, width, ...otherProps } = props;
 
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
@@ -20,7 +22,8 @@ export const Input = memo((props: InputProps) => {
 
   const input = (
     <input
-      className={cls.input}
+      style={{ maxWidth: width }}
+      className={cn(cls.input, className)}
       onChange={handleChangeInput}
       {...otherProps}
     />
@@ -28,7 +31,10 @@ export const Input = memo((props: InputProps) => {
 
   if (label) {
     return (
-      <VStack gap='10'>
+      <VStack
+        gap='10'
+        max
+      >
         <Text text={label} />
         {input}
       </VStack>

@@ -1,17 +1,14 @@
-import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 import cn from 'classnames';
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 import cls from './Flex.module.scss';
 
 export type FlexJustify = 'start' | 'center' | 'end' | 'between';
 export type FlexAlign = 'start' | 'center' | 'end';
 export type FlexDirection = 'row' | 'column';
-export type FlexGap = '4' | '10' | '16' | '24' | '32';
+export type FlexGap = '5' | '10' | '20' | '30';
 export type FlexWrap = 'nowrap' | 'wrap';
 
-type DivProps = DetailedHTMLProps<
-  HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
->;
+type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 export interface FlexProps extends DivProps {
   className?: string;
   children: ReactNode;
@@ -23,10 +20,7 @@ export interface FlexProps extends DivProps {
   max?: boolean;
 }
 
-export type FlexParams = Pick<
-  FlexProps,
-  'justify' | 'align' | 'direction' | 'gap' | 'max' | 'wrap'
->;
+export type FlexParams = Pick<FlexProps, 'justify' | 'align' | 'direction' | 'gap' | 'max' | 'wrap'>;
 
 const justifyClasses: Record<FlexJustify, string> = {
   start: cls.justifyStart,
@@ -47,11 +41,10 @@ const directionClasses: Record<FlexDirection, string> = {
 };
 
 const gapClasses: Record<FlexGap, string> = {
-  4: cls.gap4,
+  5: cls.gap5,
   10: cls.gap10,
-  16: cls.gap16,
-  24: cls.gap24,
-  32: cls.gap32
+  20: cls.gap20,
+  30: cls.gap30
 };
 
 export const getFlex = (params: FlexParams): string =>

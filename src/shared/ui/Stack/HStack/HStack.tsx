@@ -1,7 +1,6 @@
 import { Flex, FlexParams, FlexProps, getFlex } from '../Flex/Flex';
 
 type HStackProps = Omit<FlexProps, 'direction'>;
-
 type HStackParams = Omit<FlexParams, 'direction'>;
 
 export const getHStack = (params: HStackParams): string =>

@@ -1,32 +1,17 @@
+import cn from 'classnames';
 import { CSSProperties, useMemo } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import UserIcon from '../../assets/icons/avatar.svg';
 import cls from './Avatar.module.scss';
-import UserIcon from '../../../assets/icons/user-filled.svg';
-import { Icon } from '../Icon';
-import { Skeleton } from '../Skeleton';
-import { AppImage } from '../../redesigned/AppImage';
-import { Text } from '../Text';
-import { HStack } from '../Stack';
 
 interface AvatarProps {
   className?: string;
-  /**
-   * Ссылка на фото
-   */
   src?: string;
   alt?: string;
-  /**
-   * Размер фото
-   */
   size?: number;
-  /**
-   * Имя профиля
-   */
-  username?: string;
 }
 
 export const Avatar = (props: AvatarProps) => {
-  const { className, src, alt = 'Аватар', size = 100, username } = props;
+  const { className, src, alt = 'Аватар', size = 40 } = props;
 
   const style = useMemo<CSSProperties>(
     () => ({
@@ -36,44 +21,21 @@ export const Avatar = (props: AvatarProps) => {
     [size]
   );
 
-  const fallback = (
-    <Skeleton
-      width={size}
-      height={size}
-      borderRadius='50%'
-    />
-  );
+  if (!src) {
+    return (
+      <UserIcon
+        className={className}
+        style={style}
+      />
+    );
+  }
 
-  const errorFallback = (
-    <Icon
-      Svg={UserIcon}
-      width={size}
-      height={size}
-    />
-  );
-
-  const image = (
-    <AppImage
-      fallback={fallback}
-      errorFallback={errorFallback}
-      className={classNames(cls.avatar, {}, [className])}
+  return (
+    <img
+      className={cn(cls.avatar, className)}
       src={src}
       alt={alt}
       style={style}
     />
   );
-
-  if (username) {
-    return (
-      <HStack gap='8'>
-        {image}
-        <Text
-          text={username}
-          bold
-        />
-      </HStack>
-    );
-  }
-
-  return image;
 };
