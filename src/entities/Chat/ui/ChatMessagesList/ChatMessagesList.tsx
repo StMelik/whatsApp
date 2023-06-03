@@ -1,3 +1,4 @@
+import BgIcon from '@/shared/assets/img/chat-bg.png';
 import { Loader } from '@/shared/ui/Loader';
 import { getVStack } from '@/shared/ui/Stack';
 import { Flex } from '@/shared/ui/Stack/Flex/Flex';
@@ -41,6 +42,7 @@ export const ChatMessagesList = memo((props: ChatMessagesListProps) => {
   if (!messages.length) {
     return (
       <Flex
+        style={{ backgroundImage: `url(${BgIcon})` }}
         className={cls.chatMessagesList}
         justify='center'
       >
@@ -55,6 +57,7 @@ export const ChatMessagesList = memo((props: ChatMessagesListProps) => {
 
   return (
     <ul
+      style={{ backgroundImage: `url(${BgIcon})` }}
       className={cn(cls.chatMessagesList, className, getVStack({ gap: '5', max: true }))}
       ref={chatRef}
     >
