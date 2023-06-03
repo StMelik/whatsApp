@@ -1,0 +1,14 @@
+.authPage {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.authForm {
+  padding: 50px 100px;
+  border-radius: 35px;
+  background-color: var(--bg-light-color);
+  max-width: 800px;
+  width: 100%;
+}
